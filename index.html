@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="./src/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <title>Dashboard</title>
+</head>
+    <body>
+        <div class="left-sidebar  animate__animated animate__fadeInLeft">
+            <div class="top-bar">
+                <div class="crypto-bank">CryptoBank</div>
+                <span class="toggle-menu">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </span>
+            </div>
+            <ul>
+                <li class="active">
+                    <span class="li-top"></span>
+                    <a href="">
+                        <span class="icon"><ion-icon name="grid-outline"></ion-icon></span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                    <span class="li-bottom"></span>
+                </li>
+                <li>
+                    <a href="">
+                        <span class="icon"><ion-icon name="pie-chart-outline"></ion-icon></span>
+                        <span class="title">Portfolio</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+                        <span class="title">Settings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+                        <span class="title">Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="dashboard">
+                <div class="welcome animate__animated animate__fadeInLeft">
+                    <h3>Dashboard</h3>
+                    <span class="time">7:23 PM</span>
+                    <span>&middot;</span>
+                    <span class="date">31 August 2021</span>
+                </div>
+                <div class="searchbar animate__animated animate__fadeInRight">
+                    <input type="text" placeholder="Search...">
+                    <ion-icon name="search-outline"></ion-icon>
+                </div>
+            </div>
+            <div class="cards">
+                <div class="card animate__animated animate__fadeInDown">
+                    <img src="./src/img/crypto/Bitcoin.svg">
+                    <div class="crypto-info">
+                        <div class="crypto-name">Bitcoin</div>
+                        <div class="crypto-price">48,289.12$</div>
+                        <div class="crypto-rate down"><ion-icon name="arrow-down-circle-outline"></ion-icon> 0.74%</div>
+                    </div>
+                    <canvas></canvas>
+                </div>
+                <div class="card animate__animated animate__fadeInDown animate__delay-1s">
+                    <img src="./src/img/crypto/Ethereum.svg">
+                    <div class="crypto-info">
+                        <div class="crypto-name">Ethereum</div>
+                        <div class="crypto-price">3,314.91$</div>
+                        <div class="crypto-rate up"><ion-icon name="arrow-up-circle-outline"></ion-icon> 2.73%</div>
+                    </div>
+                    <canvas></canvas>
+                </div>
+                <div class="card animate__animated animate__fadeInDown animate__delay-2s">
+                    <img src="./src/img/crypto/Litecoin.svg">
+                    <div class="crypto-info">
+                        <div class="crypto-name">Litecoin</div>
+                        <div class="crypto-price">173.68$</div>
+                        <div class="crypto-rate down"><ion-icon name="arrow-down-circle-outline"></ion-icon> 0.97%</div>
+                    </div>
+                    <canvas></canvas>
+                </div>
+                <div class="card animate__animated animate__fadeInDown animate__delay-3s">
+                    <img src="./src/img/crypto/Cardano.svg">
+                    <div class="crypto-info">
+                        <div class="crypto-name">Cardano</div>
+                        <div class="crypto-price">2.81$</div>
+                        <div class="crypto-rate down"><ion-icon name="arrow-down-circle-outline"></ion-icon> 2.04%</div>
+                    </div>
+                    <canvas></canvas>
+                </div>
+            </div>
+            <div class="portfolio">
+                <div class="balance animate__animated animate__fadeInLeft">
+                    <h3>Porfolio Balance</h3>
+                    <div class="row">
+                        <div class="wallet-amount">
+                            <h2></h2>
+                            <div class="crypto-rate up"><ion-icon name="arrow-up-circle-outline"></ion-icon> <span> </span></div>
+                        </div>
+                        <div class="control-datetime">
+                            <ul>
+                                <li li-index="day" class="active" onclick="changeData(this)">day</li>
+                                <li li-index="week" onclick="changeData(this)">week</li>
+                                <li li-index="month" onclick="changeData(this)">month</li>
+                                <li li-index="year" onclick="changeData(this)">year</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <canvas class="line-chart"></canvas>
+                </div>
+                <div class="wallets animate__animated animate__fadeInDown animate__delay-2s">
+                    <h3>My Wallet</h3>
+                    <div class="doughnut">
+                        <span></span>
+                        <canvas class="doughnut-chart"></canvas>
+                    </div>
+                </div>
+                <div class="quick-convert animate__animated animate__fadeInUp animate__delay-2s">
+                    <h3>Quick Conversion</h3>
+                    <div class="conversion">
+                        <div class="convert">
+                            <span class="max">MAX</span>
+                            <div class="amount">
+                                <div>
+                                    <input type="number" placeholder="0">
+                                    <span>$</span>
+                                </div>
+                                <span class="crypto-amount">0 BTC</span>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="convert-control">
+                            <div class="from">
+                                <img src="./src/img/crypto/Bitcoin.svg">
+                                <select>
+                                    <option value="BTC">BTC</option>
+                                    <option value="ETH" disabled>ETH</option>
+                                    <option value="LTC">LTC</option>
+                                    <option value="ADA">ADA</option>
+                                </select>
+                            </div>
+                            <ion-icon name="caret-forward-outline"></ion-icon>
+                            <div class="to">
+                                <select>
+                                    <option value="ETH">ETH</option>
+                                    <option value="BTC" disabled>BTC</option>
+                                    <option value="LTC">LTC</option>
+                                    <option value="ADA">ADA</option>
+                                </select>
+                                <img src="./src/img/crypto/Ethereum.svg">
+                            </div>
+                        </div>
+                        <hr>
+                        <button>Convert</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right-sidebar">
+            <div class="user-profile  animate__animated animate__fadeInRight">
+                <span class="user-notification active"><ion-icon name="notifications-outline"></ion-icon></span>
+                <div class="user-devise">
+                    <select>
+                        <option value="USD">USD $</option>
+                        <option value="EUR">EUR €</option>
+                    </select>
+                </div>
+                <span class="user-name">Didier Pétou</span>
+                <img class="user-logo" src="./src/img/user/logo.png">
+            </div>
+            <div class="quick-transfert  animate__animated animate__fadeInRight animate__delay-1s">
+                <h3>Quick Transfert</h3>
+                <div class="transfert">
+                    <div class="select-crypto">
+                        <img src="./src/img/crypto/Bitcoin.svg">
+                        <select>
+                            <option value="BTC">BTC</option>
+                            <option value="ETH">ETH</option>
+                            <option value="LTC">LTC</option>
+                            <option value="ADA">ADA</option>
+                        </select>
+                    </div>
+                    <hr>
+                    <div class="transfert-control">
+                        <span class="max">MAX</span>
+                        <div class="amount">
+                            <div>
+                                <input type="number" placeholder="0">
+                                <span>$</span>
+                            </div>
+                            <span class="crypto-amount">0 BTC</span>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="address">
+                        <div class="input-send">
+                            <input type="text" placeholder="Address">
+                            <div>
+                                <ion-icon name="send-outline"></ion-icon>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="lastest-transactions  animate__animated animate__fadeInRight animate__delay-2s">
+                <h3>Lastest transactions</h3>
+                <ul>
+                    <li>
+                        <div class="transaction">
+                            <img src="./src/img/crypto/Bitcoin.svg">
+                            <div class="transaction-info">
+                                <div class="transaction-crypto down">Sent Bitcoin</div>
+                                <div class="transaction-date">Today, 6:28 PM</div>
+                            </div>
+                            <div class="transaction-value">
+                                <div class="value">55.38$</div>
+                                <div class="value-crypto">0.00116749 BTC</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="transaction">
+                            <img src="./src/img/crypto/Ethereum.svg">
+                            <div class="transaction-info">
+                                <div class="transaction-crypto up">Received Ethereum</div>
+                                <div class="transaction-date">Today, 9:57 AM</div>
+                            </div>
+                            <div class="transaction-value">
+                                <div class="value">27.38$</div>
+                                <div class="value-crypto">0.00722912 ETH</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="transaction">
+                            <img src="./src/img/crypto/Litecoin.svg">
+                            <div class="transaction-info">
+                                <div class="transaction-crypto down">Sent Litecoin</div>
+                                <div class="transaction-date">Yesterday, 8:13 PM</div>
+                            </div>
+                            <div class="transaction-value">
+                                <div class="value">31.02$</div>
+                                <div class="value-crypto">0.17973267 LTC</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="transaction">
+                            <img src="./src/img/crypto/Cardano.svg">
+                            <div class="transaction-info">
+                                <div class="transaction-crypto up">Received Cardano</div>
+                                <div class="transaction-date">Yesterday, 11:42 AM</div>
+                            </div>
+                            <div class="transaction-value">
+                                <div class="value">44.03$</div>
+                                <div class="value-crypto">15.825934 ADA</div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <script src="./src/script/script.js"></script>
+    </body>
+</html>
